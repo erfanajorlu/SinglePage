@@ -18,3 +18,15 @@ function router(){
             break;
       }   
 }
+
+function render(data){
+    document.querySelector('h1').innerText = data.title;
+    document.querySelector('main').style.background = data.color;
+    document.querySelectorAll('a').forEach((element)=>{
+        if(element.href.includes(data.href)){
+            element.style.color = "black";
+        }else{
+            element.style.color = '#666';
+        } 
+    })
+}
