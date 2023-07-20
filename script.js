@@ -1,18 +1,20 @@
-document.querySelector("nav").addEventListener("click", (e) => {
-  if (e.target.nodeName != "I") return;
-  let data;
-  switch (e.target.getAttributeNode("item-id").value) {
-    case "home":
-      data = { title: "HOME", color: "red", ItemId: "home" };
-      break;
-    case "search":
-      data = { title: "SEARCH", color: "blue", ItemId: "search" };
-      break;
-    case "likes":
-      data = { title: "LIKES", color: "yellow", ItemId: "likes" };
-      break;
-    default:
-        data = { title: "PROFILE", color: "pink", ItemId: "profile" };
-        break;
-  }
-});
+router();
+window.addEventListener("hashchange",(e)=>{
+    router();
+})
+function router(){
+    switch (location.hash) {
+        case "#home":
+          render({ title: "HOME", color: "red", ItemId: "home" });      
+          break;
+        case "#search":
+          render({ title: "SEARCH", color: "blue", ItemId: "search" });
+          break;
+        case "#likes":
+          render({ title: "LIKES", color: "yellow", ItemId: "likes"});
+          break;
+        case "#profile":
+            render({ title: "PROFILE", color: "pink", ItemId: "profile" });
+            break;
+      }   
+}
